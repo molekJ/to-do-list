@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function ListName() {
+export default function TaskList() {
   return <div></div>;
 }

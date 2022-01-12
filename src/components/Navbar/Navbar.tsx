@@ -1,4 +1,3 @@
-import React from "react";
 import { MainContainer } from "./NavbarStyled";
 
 export default function Navbar() {

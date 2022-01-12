@@ -5,10 +5,10 @@ export const GlobalStyle = createGlobalStyle`
         --white: #fff;
         --black: #000000;
         --orange: #FF9900;
-        --tlo: #1a1a1a;
-        --ciemny: #2D2D2D;
+        --dark-strong: #1a1a1a;
+        --dark: #2D2D2D;
         --red-orange:#FF3D00;
-        --check: #00FF0A;
+        --checked: #00FF0A;
     }
 
 
@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     font-family: 'Roboto', sans-serif;
     overflow-x: scroll;
-    background-color: var(--ciemny);
+    background-color: var(--dark-strong);
 }
 
 
@@ -25,5 +25,6 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
     }
 `;
