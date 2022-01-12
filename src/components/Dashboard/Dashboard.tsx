@@ -19,6 +19,12 @@ export default function Dashboard() {
         <Button color="var(--red-orange)">CLEAR</Button>
         <Button color="var(--orange)">ADD</Button>
       </ButtonContainer>
+      <Button
+        color="var(--orange)"
+        style={{ position: "absolute", bottom: 20, right: "10%" }}
+      >
+        SAVE
+      </Button>
     </MainContainer>
   );
 }
