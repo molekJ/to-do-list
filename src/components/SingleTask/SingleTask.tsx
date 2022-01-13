@@ -1,5 +1,11 @@
 import React from "react";
+import { CheckTask, LabelTask, MainContainer } from "./SingleTaskStyled";
 
 export default function SingleTask() {
-  return <div></div>;
+  return (
+    <MainContainer>
+      <CheckTask id="task" type="checkbox"></CheckTask>
+      <LabelTask htmlFor="task">Halo halo</LabelTask>
+    </MainContainer>
+  );
 }

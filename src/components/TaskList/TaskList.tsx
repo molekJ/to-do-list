@@ -1,5 +1,11 @@
 import React from "react";
+import SingleTask from "../SingleTask/SingleTask";
 
 export default function TaskList() {
-  return <div></div>;
+  return (
+    <>
+      <SingleTask></SingleTask>
+      <SingleTask></SingleTask>
+    </>
+  );
 }
