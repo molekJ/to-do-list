@@ -18,21 +18,34 @@ export const ButtonTrash = styled.button`
   background: transparent;
   position: relative;
   color: var(--red-orange);
-
+  opacity: 0.8;
   right: 10px;
   :hover {
     cursor: pointer;
+    opacity: 1;
   }
   transition: all 0.2s;
   :active {
-    transform: scale(1.05);
+    transform: scale(0.9);
   }
 `;
 
 export const CheckTask = styled.input`
-  width: 24px;
-  height: 24px;
-  border: 0;
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  transition: 0.5s ease;
+  opacity: 0.8;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none; // wyglad
+  background: transparent;
+  border: solid 2px var(--orange);
+  cursor: pointer;
+  :checked {
+    border: solid 2px var(--checked);
+  }
 
   :checked + label {
     text-decoration: line-through;
@@ -50,4 +63,5 @@ export const LabelTask = styled.label`
   ::first-letter {
     text-transform: capitalize;
   }
+  cursor: pointer;
 `;

@@ -10,6 +10,8 @@ import {
 } from "./DashboardStyled";
 
 export default function Dashboard() {
+  const ArrayTasks: string[] = [];
+
   return (
     <MainContainer>
       <InputTask type={"text"} placeholder="Write your task"></InputTask>
