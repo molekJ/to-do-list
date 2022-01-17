@@ -1,11 +1,16 @@
 import React from "react";
-import SingleTask from "../SingleTask/SingleTask";
+import { SingleTask } from "../SingleTask/SingleTask";
 
-export default function TaskList() {
+interface Props {
+  arrayTasks: string[];
+}
+
+export const TaskList: React.FC<Props> = ({ arrayTasks }) => {
   return (
     <>
-      <SingleTask></SingleTask>
-      <SingleTask></SingleTask>
+      {arrayTasks.map((el, index) => {
+        return <SingleTask taskContent={el} taskId={index}></SingleTask>;
+      })}
     </>
   );
-}
+};

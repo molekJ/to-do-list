@@ -1,5 +1,5 @@
 import React from "react";
-import TaskList from "../TaskList/TaskList";
+import { TaskList } from "../TaskList/TaskList";
 
 import {
   Button,
@@ -10,13 +10,13 @@ import {
 } from "./DashboardStyled";
 
 export default function Dashboard() {
-  const ArrayTasks: string[] = [];
+  const ArrayTasks: string[] = ["Kup mleko", "idz na spacer"];
 
   return (
     <MainContainer>
       <InputTask type={"text"} placeholder="Write your task"></InputTask>
       <Line></Line>
-      <TaskList></TaskList>
+      <TaskList arrayTasks={ArrayTasks}></TaskList>
       <ButtonContainer>
         <Button color="var(--red-orange)">CLEAR</Button>
         <Button color="var(--orange)">ADD</Button>

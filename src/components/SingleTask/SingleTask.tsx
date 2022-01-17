@@ -8,7 +8,12 @@ import { BsFillTrashFill } from "react-icons/bs";
 
 import { useState } from "react";
 
-export default function SingleTask() {
+interface Props {
+  taskContent: string;
+  taskId: number;
+}
+
+export const SingleTask: React.FC<Props> = ({ taskContent, taskId }) => {
   const [checkMark, setCheckMark] = useState(false);
   return (
     <MainContainer>
@@ -21,11 +26,11 @@ export default function SingleTask() {
       ></CheckTask>
 
       <LabelTask htmlFor="task">
-        halo halo {checkMark ? "Jest" : "Nie"}{" "}
+        {taskContent} {checkMark ? "Done" : "Nie"} {taskId}{" "}
       </LabelTask>
       <ButtonTrash>
         <BsFillTrashFill size={24}></BsFillTrashFill>
       </ButtonTrash>
     </MainContainer>
   );
-}
+};

@@ -1,4 +1,3 @@
-import { type } from "os";
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
@@ -41,13 +40,15 @@ export const CheckTask = styled.input`
   -o-appearance: none;
   appearance: none; // wyglad
   background: transparent;
-  border: solid 2px var(--orange);
+  border: solid 2px var(--red-orange);
   cursor: pointer;
   :checked {
     border: solid 2px var(--checked);
   }
 
   :checked + label {
+    transition: 0.5s ease;
+
     text-decoration: line-through;
     opacity: 0.4;
   }
