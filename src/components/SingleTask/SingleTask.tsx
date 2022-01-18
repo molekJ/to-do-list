@@ -15,19 +15,19 @@ interface Props {
 
 export const SingleTask: React.FC<Props> = ({ taskContent, taskId }) => {
   const [checkMark, setCheckMark] = useState(false);
+
+  const taskIdString = taskId.toString();
   return (
     <MainContainer>
       <CheckTask
-        id="task"
+        id={taskIdString}
         type="checkbox"
         onClick={() => {
           setCheckMark(!checkMark);
         }}
       ></CheckTask>
 
-      <LabelTask htmlFor="task">
-        {taskContent} {checkMark ? "Done" : "Nie"} {taskId}{" "}
-      </LabelTask>
+      <LabelTask htmlFor={taskIdString}>{taskContent} </LabelTask>
       <ButtonTrash>
         <BsFillTrashFill size={24}></BsFillTrashFill>
       </ButtonTrash>
