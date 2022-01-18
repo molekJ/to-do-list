@@ -13,10 +13,6 @@ export default function Dashboard() {
   const [arrayTask, useArrayTask] = useState<string[]>([]);
   const [newTask, setNewTask] = useState("");
 
-  function showTask() {
-    console.log(newTask);
-  }
-
   function AddingTaskToArray() {
     useArrayTask((arrayTask) => [...arrayTask, newTask]);
   }
@@ -30,7 +26,7 @@ export default function Dashboard() {
         onChange={(e) => setNewTask(e.target.value)}
       ></InputTask>
       <Line></Line>
-      <TaskList arrayTasks={arrayTask}></TaskList>
+      <TaskList arrayTasks={arrayTask} useArrayTask={useArrayTask}></TaskList>
       <ButtonContainer>
         <Button
           color="var(--red-orange)"
@@ -45,11 +41,15 @@ export default function Dashboard() {
           color="var(--orange)"
           onClick={(e) => {
             e.preventDefault();
-            if (newTask == "" || newTask == " ") {
+            if (!newTask) {
+              alert("Nie można dodać pustego zadania");
+              return;
+            }
+            if (newTask.length < 10) {
+              alert("Zbyt krótka treść");
               return;
             }
             AddingTaskToArray();
-            showTask();
             setNewTask("");
           }}
         >
