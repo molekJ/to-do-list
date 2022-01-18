@@ -9,7 +9,9 @@ export const TaskList: React.FC<Props> = ({ arrayTasks }) => {
   return (
     <>
       {arrayTasks.map((el, index) => {
-        return <SingleTask taskContent={el} taskId={index}></SingleTask>;
+        return (
+          <SingleTask key={index} taskContent={el} taskId={index}></SingleTask>
+        );
       })}
     </>
   );
