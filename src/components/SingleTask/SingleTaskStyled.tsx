@@ -29,7 +29,11 @@ export const ButtonTrash = styled.button`
   }
 `;
 
-export const CheckTask = styled.input`
+interface IsChecked {
+  isChecked: boolean;
+}
+
+export const CheckTask = styled.input<IsChecked>`
   width: 20px;
   height: 20px;
   margin-left: 15px;
@@ -40,15 +44,15 @@ export const CheckTask = styled.input`
   -o-appearance: none;
   appearance: none; // wyglad
   background: transparent;
-  border: solid 2px var(--red-orange);
+  /* border: solid 2px var(--red-orange); */
   cursor: pointer;
   :checked {
-    border: solid 2px var(--checked);
+    /* border: solid 2px var(--checked); */
   }
-
+  border: solid 2px
+    var(${({ isChecked }) => (isChecked ? "--checked" : "--red-orange")});
   :checked + label {
     transition: 0.5s ease;
-
     text-decoration: line-through;
     opacity: 0.4;
   }

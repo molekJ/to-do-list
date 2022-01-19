@@ -2,21 +2,32 @@ import React from "react";
 import { SingleTask } from "../SingleTask/SingleTask";
 
 interface Props {
-  arrayTasks: string[];
-  useArrayTask: React.Dispatch<React.SetStateAction<string[]>>;
+  arrayTask: {
+    taskContent: string;
+    isChecked: boolean;
+  }[];
+  setArrayTask: React.Dispatch<
+    React.SetStateAction<
+      {
+        taskContent: string;
+        isChecked: boolean;
+      }[]
+    >
+  >;
 }
 
-export const TaskList: React.FC<Props> = ({ arrayTasks, useArrayTask }) => {
+export const TaskList: React.FC<Props> = ({ arrayTask, setArrayTask }) => {
   return (
     <>
-      {arrayTasks.map((el, index) => {
+      {arrayTask.map((el, index) => {
         return (
           <SingleTask
             key={index}
-            taskContent={el}
+            taskContent={el.taskContent}
             taskId={index}
-            arrayTasks={arrayTasks}
-            useArrayTask={useArrayTask}
+            arrayTask={arrayTask}
+            setArrayTask={setArrayTask}
+            isChecked={el.isChecked}
           ></SingleTask>
         );
       })}

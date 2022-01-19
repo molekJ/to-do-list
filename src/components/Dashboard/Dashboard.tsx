@@ -10,11 +10,13 @@ import {
 } from "./DashboardStyled";
 
 export default function Dashboard() {
-  const [arrayTask, useArrayTask] = useState<string[]>([]);
-  const [newTask, setNewTask] = useState("");
+  const [arrayTask, setArrayTask] = useState<
+    { taskContent: string; isChecked: boolean }[]
+  >([]);
+  const [newTask, setNewTask] = useState({ taskContent: "", isChecked: false });
 
   function AddingTaskToArray() {
-    useArrayTask((arrayTask) => [...arrayTask, newTask]);
+    setArrayTask((arrayTask) => [...arrayTask, newTask]);
   }
 
   return (
@@ -22,17 +24,19 @@ export default function Dashboard() {
       <InputTask
         type={"text"}
         placeholder="Write your task"
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
+        value={newTask.taskContent}
+        onChange={(e) =>
+          setNewTask({ taskContent: e.target.value, isChecked: false })
+        }
       ></InputTask>
       <Line></Line>
-      <TaskList arrayTasks={arrayTask} useArrayTask={useArrayTask}></TaskList>
+      <TaskList arrayTask={arrayTask} setArrayTask={setArrayTask}></TaskList>
       <ButtonContainer>
         <Button
           color="var(--red-orange)"
           onClick={(e) => {
             e.preventDefault();
-            setNewTask("");
+            setNewTask({ taskContent: "", isChecked: false });
           }}
         >
           CLEAR
@@ -45,12 +49,12 @@ export default function Dashboard() {
               alert("Nie można dodać pustego zadania");
               return;
             }
-            if (newTask.length < 10) {
+            if (newTask.taskContent.length < 10) {
               alert("Zbyt krótka treść");
               return;
             }
             AddingTaskToArray();
-            setNewTask("");
+            setNewTask({ taskContent: "", isChecked: false });
           }}
         >
           ADD

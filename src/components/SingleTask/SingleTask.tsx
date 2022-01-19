@@ -6,27 +6,47 @@ import {
 } from "./SingleTaskStyled";
 import { BsFillTrashFill } from "react-icons/bs";
 
-import { useState } from "react";
-
 interface Props {
   taskContent: string;
   taskId: number;
-  useArrayTask: React.Dispatch<React.SetStateAction<string[]>>;
-  arrayTasks: string[];
+  setArrayTask: React.Dispatch<
+    React.SetStateAction<
+      {
+        taskContent: string;
+        isChecked: boolean;
+      }[]
+    >
+  >;
+  arrayTask: {
+    taskContent: string;
+    isChecked: boolean;
+  }[];
+  isChecked: boolean;
 }
 
 export const SingleTask: React.FC<Props> = ({
   taskContent,
   taskId,
-  useArrayTask,
-  arrayTasks,
+  setArrayTask,
+  arrayTask,
+  isChecked,
 }) => {
-  const [checkMark, setCheckMark] = useState(false);
-
   function DeleteTaskFromArray() {
-    useArrayTask((arrayTasks) =>
+    setArrayTask((arrayTasks) =>
       arrayTasks.filter((old) => old != arrayTasks[taskId])
     );
+  }
+
+  function ChangeCheckTask() {
+    setArrayTask((arrayTask) =>
+      arrayTask.map((task1) =>
+        task1.taskContent !== taskContent
+          ? task1
+          : { ...task1, isChecked: !arrayTask[taskId].isChecked }
+      )
+    );
+    console.log(arrayTask);
+    console.log(arrayTask[taskId].taskContent);
   }
 
   const taskIdString = taskId.toString();
@@ -36,8 +56,9 @@ export const SingleTask: React.FC<Props> = ({
         id={taskIdString}
         type="checkbox"
         onClick={() => {
-          setCheckMark(!checkMark);
+          ChangeCheckTask();
         }}
+        isChecked={isChecked}
       ></CheckTask>
 
       <LabelTask htmlFor={taskIdString}>{taskContent} </LabelTask>
