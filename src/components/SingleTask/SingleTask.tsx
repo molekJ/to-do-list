@@ -45,8 +45,6 @@ export const SingleTask: React.FC<Props> = ({
           : { ...task1, isChecked: !arrayTask[taskId].isChecked }
       )
     );
-    console.log(arrayTask);
-    console.log(arrayTask[taskId].taskContent);
   }
 
   const taskIdString = taskId.toString();
@@ -61,7 +59,9 @@ export const SingleTask: React.FC<Props> = ({
         isChecked={isChecked}
       ></CheckTask>
 
-      <LabelTask htmlFor={taskIdString}>{taskContent} </LabelTask>
+      <LabelTask htmlFor={taskIdString} isChecked={isChecked}>
+        {taskContent}{" "}
+      </LabelTask>
       <ButtonTrash
         onClick={() => {
           DeleteTaskFromArray();

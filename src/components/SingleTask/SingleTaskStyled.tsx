@@ -42,23 +42,17 @@ export const CheckTask = styled.input<IsChecked>`
   -webkit-appearance: none;
   -moz-appearance: none;
   -o-appearance: none;
-  appearance: none; // wyglad
+  appearance: none;
   background: transparent;
-  /* border: solid 2px var(--red-orange); */
   cursor: pointer;
   :checked {
     /* border: solid 2px var(--checked); */
   }
   border: solid 2px
     var(${({ isChecked }) => (isChecked ? "--checked" : "--red-orange")});
-  :checked + label {
-    transition: 0.5s ease;
-    text-decoration: line-through;
-    opacity: 0.4;
-  }
 `;
 
-export const LabelTask = styled.label`
+export const LabelTask = styled.label<IsChecked>`
   color: var(--white);
   width: 90%;
   text-align: left;
@@ -69,4 +63,8 @@ export const LabelTask = styled.label`
     text-transform: capitalize;
   }
   cursor: pointer;
+
+  text-decoration: ${({ isChecked }) => (isChecked ? "line-through" : "none")};
+  opacity: ${({ isChecked }) => (isChecked ? "0.4" : "1")};
+  transition: 0.5s ease;
 `;
