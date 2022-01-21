@@ -5,10 +5,9 @@ export const MainContainer = styled.div`
   min-height: 612px;
   background: var(--dark);
   margin: 0 auto;
-  position: relative;
-  top: 144px;
   display: flex;
   flex-direction: column;
+  padding-bottom: 20px;
 `;
 
 export const InputTask = styled.input`

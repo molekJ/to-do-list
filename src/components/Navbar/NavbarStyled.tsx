@@ -5,8 +5,7 @@ export const MainContainer = styled.div`
   font-family: "ZCOOL KuaiLe", cursive;
   font-size: 64px;
   font-weight: 400;
-  position: fixed;
-  left: 40px;
-  top: 40px;
+  position: relative;
+  margin: 40px 0;
   color: var(--orange);
 `;

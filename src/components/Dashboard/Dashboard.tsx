@@ -1,3 +1,4 @@
+import { endianness } from "os";
 import React, { useEffect, useState } from "react";
 import { TaskList } from "../TaskList/TaskList";
 
@@ -20,8 +21,6 @@ export default function Dashboard() {
   }
 
   function getItemsFromLocalStorage() {
-    let list = localStorage.getItem("list");
-
     return JSON.parse(localStorage.getItem("list") || "[]");
   }
 
@@ -70,12 +69,6 @@ export default function Dashboard() {
           ADD
         </Button>
       </ButtonContainer>
-      <Button
-        color="var(--orange)"
-        style={{ position: "absolute", bottom: 20, right: "10%" }}
-      >
-        SAVE
-      </Button>
     </MainContainer>
   );
 }

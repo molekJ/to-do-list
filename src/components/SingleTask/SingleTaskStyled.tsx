@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const MainContainer = styled.div`
   width: 80%;
-  height: 36px;
+  min-height: 36px;
   border-radius: 8px;
   background: var(--dark-strong);
   margin: 20px auto 0;
@@ -10,6 +10,7 @@ export const MainContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 0;
 `;
 
 export const ButtonTrash = styled.button`
@@ -45,9 +46,6 @@ export const CheckTask = styled.input<IsChecked>`
   appearance: none;
   background: transparent;
   cursor: pointer;
-  :checked {
-    /* border: solid 2px var(--checked); */
-  }
   border: solid 2px
     var(${({ isChecked }) => (isChecked ? "--checked" : "--red-orange")});
 `;
@@ -63,8 +61,8 @@ export const LabelTask = styled.label<IsChecked>`
     text-transform: capitalize;
   }
   cursor: pointer;
-
   text-decoration: ${({ isChecked }) => (isChecked ? "line-through" : "none")};
   opacity: ${({ isChecked }) => (isChecked ? "0.4" : "1")};
   transition: 0.5s ease;
+  word-wrap: break-word;
 `;

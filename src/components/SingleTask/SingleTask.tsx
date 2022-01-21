@@ -40,7 +40,7 @@ export const SingleTask: React.FC<Props> = ({
   function ChangeCheckTask() {
     setArrayTask((arrayTask) =>
       arrayTask.map((task1) =>
-        task1.taskContent !== taskContent
+        task1 !== arrayTask[taskId]
           ? task1
           : { ...task1, isChecked: !arrayTask[taskId].isChecked }
       )
