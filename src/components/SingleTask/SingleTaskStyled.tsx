@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
-  width: 80%;
   min-height: 36px;
   border-radius: 8px;
   background: var(--dark-strong);
@@ -11,6 +10,18 @@ export const MainContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
+
+  @media screen and (max-width: 576px) {
+    width: 90%;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 90%;
+  }
+
+  @media screen and (min-width: 992px) {
+    width: 80%;
+  }
 `;
 
 export const ButtonTrash = styled.button`
@@ -35,8 +46,6 @@ interface IsChecked {
 }
 
 export const CheckTask = styled.input<IsChecked>`
-  width: 20px;
-  height: 20px;
   margin-left: 15px;
   transition: 0.5s ease;
   opacity: 0.8;
@@ -48,6 +57,23 @@ export const CheckTask = styled.input<IsChecked>`
   cursor: pointer;
   border: solid 2px
     var(${({ isChecked }) => (isChecked ? "--checked" : "--red-orange")});
+
+  @media screen and (max-width: 576px) {
+    width: 12px;
+    height: 12px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 16px;
+    height: 16px;
+  }
+  @media screen and (min-width: 992px) {
+    width: 18px;
+    height: 18px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 export const LabelTask = styled.label<IsChecked>`
@@ -65,4 +91,19 @@ export const LabelTask = styled.label<IsChecked>`
   opacity: ${({ isChecked }) => (isChecked ? "0.4" : "1")};
   transition: 0.5s ease;
   word-wrap: break-word;
+
+  @media screen and (max-width: 576px) {
+    width: 80%;
+    font-size: 14px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 85%;
+    font-size: 18px;
+  }
+  @media screen and (min-width: 992px) {
+    font-size: 20px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 90%;
+  }
 `;
